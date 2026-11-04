@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "YT Dislikes — Jabrek",
+  "version": "1.3.6",
+  "description": "Mostra uma nota de 0 a 10 nas miniaturas e nos vídeos do YouTube.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "ratings.js",
+        "youtube.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://v2.jabrek.net/yt-dislikes/*"
+      ],
+      "js": [
+        "jabrek-frame.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://v2.jabrek.net/yt-dislikes/*"
+  ],
+  "permissions": [
+    "storage"
+  ]
+}
