@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Package the extension for Chrome and Firefox and archive a signed Safari app."""
 import argparse
+from copy import deepcopy
 import json
 import subprocess
 from pathlib import Path
@@ -12,10 +13,13 @@ DIST = ROOT / "dist"
 
 
 def package_web(target, base):
-    manifest = dict(base)
+    manifest = deepcopy(base)
     suffix = "zip"
     if target == "firefox":
         suffix = "xpi"
+        manifest["content_scripts"][0]["js"][0] = "firefox-client.js"
+        manifest["background"] = {"scripts": ["ratings.js", "firefox-background.js"]}
+        manifest["host_permissions"].append("https://returnyoutubedislikeapi.com/*")
         manifest["browser_specific_settings"] = {
             "gecko": {
                 "id": "yt-dislikes-ps@psalles00.github",
@@ -29,6 +33,8 @@ def package_web(target, base):
         for script in manifest["content_scripts"]:
             for resource in script.get("js", []) + script.get("css", []):
                 archive.write(SOURCE / resource, resource)
+        for resource in manifest.get("background", {}).get("scripts", []):
+            archive.write(SOURCE / resource, resource)
         for resource in manifest["icons"].values():
             archive.write(SOURCE / resource, resource)
 
