@@ -7,7 +7,7 @@ Extensão que mostra uma nota estimada de 0 a 10 no YouTube. Passe o mouse sobre
 | Navegador | Arquivo | Instalação |
 | --- | --- | --- |
 | Chrome | [Baixar ZIP](https://github.com/psalles00/yt-dislikes-ps/releases/latest/download/yt-dislikes-ps-chrome.zip) | Extraia o ZIP. Em `chrome://extensions`, ative o **Modo do desenvolvedor**, escolha **Carregar sem compactação** e selecione a pasta que contém `manifest.json`. |
-| Firefox 140+ | [Baixar XPI](https://github.com/psalles00/yt-dislikes-ps/releases/latest/download/yt-dislikes-ps-firefox.xpi) | Salve o arquivo. Em `about:debugging#/runtime/this-firefox`, escolha **Carregar extensão temporária** e selecione o XPI. A extensão sem assinatura da Mozilla é removida ao reiniciar o Firefox. |
+| Firefox 140+ | [Baixar XPI](https://github.com/psalles00/yt-dislikes-ps/releases/latest/download/yt-dislikes-ps-firefox.xpi) | XPI assinado pela Mozilla. Em `about:addons`, abra o menu de engrenagem, escolha **Instalar extensão de um arquivo…** e selecione o XPI. A instalação permanece após reiniciar o Firefox. |
 | Safari no macOS 14+ | [Baixar app para macOS](https://github.com/psalles00/yt-dislikes-ps/releases/latest/download/yt-dislikes-ps-safari-macos.zip) | Extraia o ZIP e abra o app que contém a extensão. Ative-a em **Safari → Ajustes → Extensões**. Este é um pacote de desenvolvimento, com assinatura Apple Development. O Gatekeeper pode bloquear este pacote de teste. A distribuição padrão em outros Macs exige um build assinado com Developer ID e notarizado pela Apple. |
 
 [Ver releases e checksums](https://github.com/psalles00/yt-dislikes-ps/releases)
